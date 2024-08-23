@@ -1,0 +1,245 @@
+﻿<krpano version="1.18" title="Fraccion Don Rodolfo" onstart="startup();">
+
+	<include url="skin/vtourskin.xml" />
+	<include url="plugins/showtext.xml" />
+ 	<include url="skin/vistageneral.xml" />
+   	<include url="skin/hotspots-actions.xml" />
+    <include url="skin/spots.xml" />
+    <include url="skin/ficha.xml" />
+    <include url="skin/mapa.xml" />
+	<include url="skin/vtourskin_design_117.xml" />
+   <!-- <include url="../krpano/plugins/googleanalytics.xml"/> -->
+
+	<!-- set skin settings: bingmaps? gyro? thumbnails? tooltips? -->
+	<skin_settings maps="false"
+	               maps_type="bing"
+	               maps_bing_api_key=""
+	               maps_zoombuttons="false"
+	               gyro="true"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="55" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="true"
+	               thumbs_text="true"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="BLEND(0.5)"
+	               controlbar_offset="20"
+	               />
+
+
+	<!-- set optional skin logo url -->
+
+	<style name="skin_hotspotstyle1"
+        scale="0.5"
+        zorder="50"
+        handcursor="true"
+        onhover="showtext(Disponible · Ver ficha);"
+        alpha="1"
+        type="text"
+        edge="center"
+        css="font-family:Din Alternate; font-size:23px; color:#000000;font-weight: bold; text-align:center;"
+        vcenter="true"
+        padding="5"
+        bg="true"
+        bgcolor="0xFFFFFF"
+        bgalpha="1.0"
+        bgborder="0"
+        bgroundedge="23"
+        bgshadow=""
+        txtshadow=""
+        width="46" height="46"
+    />
+		  <style name="spot-andrea" scale="0.4" zorder="50" edge="bottom" align="bottom" alpha="1"
+        capture="false" handcursor="false"
+	    fillcolor="0xffff00" fillalpha="0.30"
+	    bordercolor="0xffff00" borderalpha="0.80"
+	    onover="tween(alpha, 0.1, 0.25);"
+	    onout="tween(alpha, 1.0, 0.25);"
+	    ondown.touch="asyncloop(pressed, onhover(); );"
+	    onup.touch="onout();"
+    />
+     
+     <style name="skin_hotspotstyle4" scale="0.5" handcursor="false" edge="bottomleft" align="bottom" alpha="1"/>
+  
+	 <style name="hs" scale="0.4" zorder="50" edge="bottom" align="bottom" alpha="1"/>
+
+<style name="lupa" scale="0.6" distorted="false" oy="0" handcursor="true" zorder="50" />
+
+
+	 <textstyle name="default"
+
+
+
+	           font="Helvetica" fontsize.no-mobile="14" fontsize.mobile="14" bold="false"
+
+
+
+	           background="true" backgroundcolor="0x211915" backgroundalpha="0.667"
+
+
+
+	           border="true" borderwidth="2" bordercolor="0xFFFFFF" roundedge="1"
+
+
+
+	           textcolor="0xFFFFFF"
+
+
+
+	           padding="6 10"
+
+
+
+	           textalign="center"
+
+
+
+	           yoffset.no-touch="-5"
+
+
+
+	           yoffset.touch="-40"
+
+
+
+	           />
+
+	<action name="startup">
+		if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);
+	</action>
+
+
+
+
+
+
+
+	<scene name="scene_master" title="Masterplan 360º I" onstart="mostrar_btn_vistageneral(false);activatespot(spot-master,240);generar_spots(1,120);generar_spots(123,134);generar_spots(312,348);" thumburl="panos/master.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="305.092" vlookat="30.359" fovtype="MFOV" fov="105.000" maxpixelzoom="2.0" fovmin="70" fovmax="130" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-33" vlookatmax="90"
+ />
+
+		<preview url="panos/master.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/master.tiles/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+	
+	
+     <hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/spots/acceso.png" onhover="showtext(Acceso);" ath="-37.709" atv="34.149"/>
+     <hotspot name="spot2" handcursor="false" style="spot-andrea" url="skin/spots/equipamiento.png" onhover="showtext(Edificio Público);" ath="120.595" atv="42.220"/>
+     <hotspot name="spot3" handcursor="false" style="spot-andrea" url="skin/spots/parque.png" onhover="showtext(Plaza);" ath="135.348" atv="41.450"/>
+
+
+
+    <hotspot name="vista2" handcursor="true" zorder="50" style="animation-hotspot" url="skin/spots/spot0.png" onclick="looktohotspot(vista2, 70, tween(easeOutQuad,3));loadscene(scene_master2, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 2);" ath="121.743" atv="19.475"/>
+	
+    <hotspot name="hito1" style="skin_hotspotstyle4" url="skin/spots/1.png" ath="-123.967" atv="13.250"/>
+	<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/spots/3.png" ath="27.149" atv="4.377"/>
+	<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/spots/2.png" ath="168.107" atv="1.850"/>
+	<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/spots/4.png" ath="72.776" atv="0.755"/>
+    <hotspot name="hito5" style="skin_hotspotstyle4" url="skin/spots/5.png" ath="122.138" atv="6.392"/>
+	<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/spots/6.png" ath="172.015" atv="2.046"/>
+	<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/spots/7.png" ath="162.458" atv="1.029"/>
+	<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/spots/8.png" ath="-125.899" atv="2.736"/>
+	<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/spots/9.png" ath="-174.089" atv="1.760"/>
+	<hotspot name="hito10" style="skin_hotspotstyle4" url="skin/spots/10.png" ath="-90.968" atv="1.303"/>
+
+
+
+
+		
+
+	</scene>
+
+		<scene name="scene_master2" title="Masterplan 360º II" onstart="mostrar_btn_vistageneral(false);activatespot(spot-master2,70);generar_spots(135,311);" thumburl="panos/master2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="109.368" vlookat="27.534" fovtype="MFOV" fov="105.000" maxpixelzoom="2.0" fovmin="70" fovmax="130" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-33" vlookatmax="90"
+ />
+
+		<preview url="panos/master2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/master2.tiles/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+	
+	
+    <hotspot name="hito1" style="skin_hotspotstyle4" url="skin/spots/1.png" ath="70.562" atv="9.144"/>
+	<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/spots/3.png" ath="178.193" atv="3.408"/>
+	<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/spots/2.png" ath="-32.192" atv="2.756"/>
+	<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/spots/4.png" ath="-124.253" atv="0.307"/>
+    <hotspot name="hito5" style="skin_hotspotstyle4" url="skin/spots/5.png" ath="-73.722" atv="8.717"/>
+	<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/spots/6.png" ath="-27.149" atv="2.694"/>
+	<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/spots/7.png" ath="-40.540" atv="1.955"/>
+	<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/spots/8.png" ath="41.544" atv="4.188"/>
+	<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/spots/9.png" ath="-9.725" atv="2.762"/>
+	<hotspot name="hito10" style="skin_hotspotstyle4" url="skin/spots/10.png" ath="66.120" atv="1.164"/>
+
+
+
+
+    <hotspot name="vista1" handcursor="true" zorder="50" style="animation-hotspot" url="skin/spots/spot0.png" onclick="looktohotspot(vista1, 70, tween(easeOutQuad,3));loadscene(scene_master, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 1);" ath="113.603" atv="17.405"/>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+	</scene>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+<style name="animation-hotspot" url="skin/spots/spot0.png" crop="0|0|64|64" framewidth="64" frameheight="64" frame="0" lastframe="19" scale="0.8" onloaded="hotspot_animate();"/>
+<action name="hotspot_animate"> inc(frame,1,get(lastframe),0); mul(ypos,frame,frameheight); txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight)); delayedcall(0.03, if(loaded, hotspot_animate() ) ); </action>
+
+
+	
+
+
+
+
+</krpano>
