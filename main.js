@@ -4,7 +4,6 @@ import axios from 'axios'
 const obtenerLotes = async() => {
   const response = await axios.get('https://rodan.com.py/propiedades/fraccion/375/lotes',{
     headers: { 
-      "Cache-Control": "no-cache",
       "Content-Type": "application/json",
       'Access-Control-Allow-Origin' : '*',
     },
