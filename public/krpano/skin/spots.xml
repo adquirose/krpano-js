@@ -1,5 +1,5 @@
 <krpano>
-        <spot name="ficha1" estado="reservado" precio="0" atv="41.814" ath="-35.915" html="A1"/>
+    <spot name="ficha1" estado="reservado" precio="0" atv="41.814" ath="-35.915" html="A1"/>
     <spot name="ficha2" estado="reservado" precio="0" atv="42.375" ath="-39.101" html="A2"/>
     <spot name="ficha3" estado="disponible" precio="67.200.000" atv="42.837" ath="-42.441" html="A3"/>
     <spot name="ficha4" estado="disponible" precio="67.200.000" atv="43.083" ath="-46.006" html="A4"/>

@@ -41,7 +41,7 @@
 
                 <!-- radar plugin (zoder=1 and hidden at start) -->
                 <layer name="radar" visible="false"
-                       url="../plugins/radar.swf" alturl="../plugins/radar.js"
+                       url="" alturl="../plugins/radar.js"
                        align="lefttop" edge="center" zorder="1"
                        scale="1.0"
                        fillcolor="0xFFFFFF" fillalpha="0.4"

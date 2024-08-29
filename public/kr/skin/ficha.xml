@@ -1,0 +1,97 @@
+<krpano>
+	<include url="data.xml" />
+	<!--Estilos del btn en la ficha-->
+	<style name="btn" type="text" vcenter="true" bg="false" bgcolor="0x000000" bgborder="2 0xFC0E0E 0" bgalpha="0.25" handcursor="true" keep="true" zorder="51" width="95" height="40" css="data:css_btn" onhover="borderActive(true);" onout="borderActive(false);"/>
+	<style name="texto_ficha" type="text" height="40" align="lefttop" edge="lefttop" background="false" backgroundcolor="0x123123" backgroundalpha="1" handcursor="false" keep="true" width="90%" zorder="51"/>
+	<!--/Estilos del btn en la ficha-->
+	<layer name="sidebar" keep="true" align="centerleftt" edge="centerleft" alpha="0" bgalpha="0.9" bgcapture="true" bgcolor="0x333333" handcursor="true" height="320" open="false" type="container" visible="false" width="340" x="-400" y="0" zorder="5" item="false" bgborder="3 0xFFFFFF 1">
+		<layer name="btn-cerrar" type="image" align="topright" edge="topright" width="20" height="20" x="5" y="5" children="false" handcursor="true" keep="true" onclick="continuar();" url="png/close.png" zorder="55"/>
+		<layer name="texto_lote" style="texto_ficha" x="25" y="10" css="data:css_texto_lote"/>
+		<layer name="texto_estado" style="texto_ficha" x="25" y="70" css="data:css_texto_valor"/>
+		<layer name="texto_precio" style="texto_ficha" x="25" y="190" css="data:css_texto_valor"/>
+		<layer name="texto_data" align="lefttop" edge="lefttop" x="25" y="105" autoheight="true" background="false" backgroundcolor="0x000000" backgroundalpha="0.5" css="data:css_texto_valor" handcursor="false" keep="true" url="../plugins/textfield.swf" width="90%" zorder="20"/>
+
+		<layer name="container-buttons" zorder="20" type="container" keep="true" align="bottom" edge="bottom" bgalpha="0.9" bgcolor="0x333333" handcursor="false" height="60" visible="true" width="100%" bgborder="3 0xFFFFFF 1">
+			<layer name="btn-extra" style="btn" x="-50" y="10" align="centerbottom" edge="centerbottom" html="Plano"/>
+			<layer name="btn-continuar" style="btn" x="50" y="10" align="centerbottom" edge="centerbottom" html="Continuar"/>
+		</layer>
+	</layer>
+
+	<layer name="transparent_layer" align="topleft" alpha="0" children="false" edge="topleft" enabled="false" handcursor="false" height="100%" keep="true" url="sidebar/transparent.png" x="0" y="0" width="100%" zorder="10"/>
+	<data name="css_texto_lote">
+    	h2 { color:#FFFFFF; font-family:Arial; font-weight:normal; font-size:18px; text-align:left; margin-left: 2px; }
+	</data>
+	<data name="css_texto_valor">
+    	h2 { color:#FFFFFF; font-family:Arial; font-weight:normal; font-size:18px; text-align:left; margin-left: 2px; }
+ 	 	p { color:#FFFFFF; font-family:Arial; font-weight:normal; font-size:15px; text-align:left; margin-left: 2px; }
+	</data>
+
+	<data name="css_btn">
+    	color:#FFFFFF; font-family:Arial; font-weight:normal; font-size:16px; text-align:center; margin-left: 5px;
+	</data>
+	<!-- mostrar_ficha(%data,%tipo:'web','plano', %link, %nombre_del_lote) -->
+	<action name="mostrar_ficha">
+		txtadd(texto_data,'data:',%1);
+		set(lote, %4);
+        subtxt(manzana, get(lote), 0, 1);
+        subtxt(num_lote, get(lote), 1, 2);
+		set(estado,%3);
+		if(estado == 'disponible', set(estado,'Disponible'));
+		if(estado == 'nodisponible', set(estado,'No Disponible'));
+		if(estado == 'reservado', set(estado,'Reservado'));
+		if(estado == 'vendido', set(estado,'Vendido'));
+
+		set(precio, %2);
+		
+		set(layer[texto_lote].html, calc('[h2]Lote ' + get(num_lote) + ' Manzana ' + get(manzana) + '[/h2]'));
+		set(layer[texto_estado].html, calc('[p]Estado: ' + get(estado) + '[/p]'));
+		set(layer[texto_precio].html, calc('[p]Precio Contado a 12 Cuotas: ' + get(precio) + ' gs.[/p]'));
+
+		set(layer[texto_data].html,get(texto_data));
+		
+		if(layer[sidebar].open == false, open_sidebar());
+
+		tween(layer[texto_data].alpha,1,.3,easeoutquad); 
+		tween(layer[texto_precio].alpha,1,.3,easeoutquad); 
+				
+		set(layer[btn-continuar].onclick,continuar()); 
+		
+		<!-- def(ruta,string,'https://wa.me/59599999999/?text=San Marcos: Hola, estoy interesado en el sitio ');
+		txtadd(link_ws,get(ruta),get(lote)); -->
+        set(layer[btn-extra].onclick,openurl('./skin/plano.pdf', _blank));
+
+	</action>
+	<action name="continuar">
+	    tween(layer[transparent_layer].alpha,0,.3,easeoutquad);
+	    set(layer[transparent_layer].enabled,false); 
+	    close_sidebar(); 
+	    		<!-- delayedcall(1,set(layer[btn-continuar].bgalpha,0));  -->
+	    delayedcall(1,
+			set(layer[sidebar_text].alpha,0)
+		); 
+	</action>
+	<action name="open_sidebar">
+		set(layer[sidebar].visible,true); 
+		delayedcall(.3, tween(layer[sidebar].alpha,1,1.5,easeoutquad); 
+			tween(layer[sidebar].x,10,1.5,easeoutquad); 
+			if(isphone, tween(layer[sidebar].x,0.5,easeoutquad););); 
+		delayedcall(1,set(layer[sidebar].open,true));
+	</action>
+	<action name="close_sidebar">
+		tween(layer[sidebar].alpha,0,1.5,easeoutquad); 
+		tween(layer[sidebar].x,-400,1.5,easeoutquad); 
+		set(layer[sidebar].align,centerleft); 
+		set(layer[sidebar].edge,centerleft);
+		set(layer[sidebar].x,-400); 
+		set(layer[sidebar].open,false);
+		
+	</action>
+	<action name="borderActive">
+		<!-- showlog(true); -->
+		if(%1 == true,
+			set(layer[get(name)].bgborder,2 0xFC0E0E 1);
+			,
+			set(layer[get(name)].bgborder,0 0xFC0E0E 0);
+		)
+	</action>
+</krpano>
