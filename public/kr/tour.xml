@@ -98,7 +98,7 @@
 		<!-- place your scene hotspots here -->
 	
 		<hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/spots/acceso.png" onhover="showtext(Acceso);" ath="-39.972" atv="36.156"/>
-		<hotspot name="vista2" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/spots/spot0.png" onclick="looktohotspot(vista2, 70, tween(easeOutQuad,3));loadscene(scene_master2, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 2);" ath="130.856" atv="21.737"/>
+		<hotspot name="vista2" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/spots/spot0.png" onclick="looktohotspot(vista2, 70, tween(easeOutQuad,3));loadscene(scene_master1, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 2);" ath="130.856" atv="21.737"/>
 		
 		<hotspot name="hito1" style="skin_hotspotstyle4" url="skin/spots/1.png" ath="160.004" atv="-0.563"/>
 		<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/spots/3.png" ath="88.723" atv="0.081"/>
