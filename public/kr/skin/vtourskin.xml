@@ -252,7 +252,7 @@
 	       />
 
 	<!-- skin_thumbtext_style - style/textfield for the (optional, skin_settings.thumbs_text) thumbnails texts -->
-	<style name="skin_thumbtext_style" type="text" align="bottom" width="100%" y="5" enabled="false" bg="false" bgborder="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-size:10px;'" textshadow="get:skin_settings.design_text_shadow" />
+	<style name="skin_thumbtext_style" type="text" align="bottom" width="100%" y="5" enabled="false" bg="false" bgborder="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-size:10px;'" txtshadow="get:skin_settings.design_text_shadow" />
 
 	<!-- skin_hotspotstyle - style for the hotspots -->
 	<style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="true"
@@ -297,7 +297,7 @@
 	       visible="false" alpha="0" enabled="false" zorder="2"
 	       align="lefttop" edge="bottom" oy="-2" width="200"
 	       bg="false"
-	       textshadow="get:skin_settings.design_text_shadow" textshadowrange="6.0" textshadowangle="90" textshadowcolor="0x000000" textshadowalpha="1.0"
+	       txtshadow="get:skin_settings.design_text_shadow" txtshadowrange="6.0" txtshadowangle="90" txtshadowcolor="0x000000" txtshadowalpha="1.0"
 	       css="calc:skin_settings.design_text_css + ' text-align:center; font-size:16px;'"
 	       html=""
 	       />
@@ -307,7 +307,7 @@
 	<layer name="skin_layer" keep="true" type="container" align="top" width="get:skin_settings.layout_width" maxwidth="get:skin_settings.layout_maxwidth" height="100%" maskchildren="true" visible="false" bgcapture="false" zorder="1">
 		<layer name="skin_scroll_window" type="container" align="bottom" width="100%" height="100%" x="0" y="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="1">
 			<layer name="skin_scroll_layer" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="100%" x="0" y="200" y_offset="get:skin_settings.controlbar_overlap" accuracy="1" bgalpha="get:skin_settings.design_bgalpha" bgcolor="get:skin_settings.design_bgcolor" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow">
-				<layer name="skin_title" type="text" align="lefttop" edge="leftbottom" x="4" y="0" zorder="4" enabled="false" bg="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" textshadow="get:skin_settings.design_text_shadow" visible="false" onautosized="skin_video_updateseekbarwidth();" />
+				<layer name="skin_title" type="text" align="lefttop" edge="leftbottom" x="4" y="0" zorder="4" enabled="false" bg="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" txtshadow="get:skin_settings.design_text_shadow" visible="false" onautosized="skin_video_updateseekbarwidth();" />
 				<layer name="skin_video_controls" type="container" align="lefttop" edge="leftbottom" width="100%" height="18" visible="false">
 					<layer name="skin_video_seekbar_container" type="container" align="lefttop" width="100%" height="100%" bgcapture="true" ondown="skin_video_ondownseeking();" >
 						<layer name="skin_video_seekbar" type="container" bgcolor="0xFFFFFF" bgalpha="0.25" align="center" width="100%" height="2">
@@ -315,7 +315,7 @@
 							<layer name="skin_video_seekpos" type="container" bgcolor="0xFFFFFF" bgalpha="1.0" align="left" edge="center" x="0" bgroundedge="8" width="10" height="10" />
 						</layer>
 					</layer>
-					<layer name="skin_video_time" type="text" align="rightbottom" x="4" enabled="false" bg="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" textshadow="get:skin_settings.design_text_shadow" html="0:00 / 0:00" />
+					<layer name="skin_video_time" type="text" align="rightbottom" x="4" enabled="false" bg="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" txtshadow="get:skin_settings.design_text_shadow" html="0:00 / 0:00" />
 				</layer>
 				<layer name="skin_scroll_container" type="container" align="lefttop" width="100%" height="100%" x="0" y="0" bgroundedge="get:skin_settings.design_bgroundedge" maskchildren="true">
 					<layer name="skin_thumbs_container" type="container" align="lefttop" width="100%" height="100%" visible="false">
@@ -365,12 +365,12 @@
 				</layer>
 
 
-		<layer name="skin_btn_disponible" handcursor="false" url="disponible.png" align="right" x="5" y="0" scale="0.35" alpha="1" visible="true" onclick=""/>
-		<layer name="skin_btn_reservado" handcursor="false" url="reservado.png" align="right" x="90" y="0" scale="0.35" alpha="1" visible="true" onclick=""/>
-		<layer name="skin_btn_vendido" handcursor="false" url="vendido.png" align="right" x="175" y="0" scale="0.35" alpha="1" visible="true" onclick=""/>
+		<layer name="skin_btn_disponible" handcursor="false" url="disponible.png" align="right" x="5" y="0" scale="0.45" alpha="1" visible="true" onclick=""/>
+		<layer name="skin_btn_nodisponible" handcursor="false" url="nodisponible.png" align="right" x="100" y="0" scale="0.45" alpha="1" visible="true" onclick=""/>
+		<!-- <layer name="skin_btn_vendido" handcursor="false" url="vendido.png" align="right" x="175" y="0" scale="0.35" alpha="1" visible="true" onclick=""/> -->
 			</layer>
 
-		<layer name="skin_loadingtext" type="text" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
+		<layer name="skin_loadingtext" type="text" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" txtshadow="get:skin_settings.design_text_shadow" />
 		<layer name="skin_buttonglow"  style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" scale="1.0" alpha="0.0" visible="false" enabled="false" />
 		<layer name="skin_thumbborder" type="container" x="get:skin_settings.design_thumbborder_padding" y="get:skin_settings.design_thumbborder_padding" width="calc:skin_settings.thumbs_width - 2*skin_settings.design_thumbborder_padding" height="calc:skin_settings.thumbs_height - 2*skin_settings.design_thumbborder_padding" visible="false" enabled="false" align="lefttop" bgborder="get:skin_settings.design_thumbborder_bgborder" bgroundedge="get:skin_settings.design_thumbborder_bgroundedge" />
 	</layer>

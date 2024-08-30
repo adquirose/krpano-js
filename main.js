@@ -1,4 +1,3 @@
-import './style.css'
 import axios from 'axios'
 import { conHtml } from './utils'
 
@@ -45,6 +44,7 @@ const arrFinal = arr.map(item => {
   const newObj = { ...obj, ...item }
   return newObj
 })
+console.log(arrFinal)
 
 function krpano_onready_interface(krpano_interface){
   krpano = krpano_interface 
@@ -85,15 +85,18 @@ const loadSpots = (scene) => {
 
 const mostrarFicha = (item) => {
 
-  const { html, cuotas_cnt, importecuota, superficie_m2, preciovtacontado } = item
+  const { html, cuotas_cnt, importecuota, superficie_m2, preciovtacontado, codigo, codigo_manzana } = item
 
   const importecuotaPY = new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG' }).format(importecuota)
   const preciovtacontadoPY = new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG' }).format(preciovtacontado)
   const superficie = new Intl.NumberFormat("de-DE").format(superficie_m2)
+  const id = `${codigo_manzana.trim()}-${codigo}`
   const card = document.createElement('div')
   const pano = document.getElementById('pano')
 
-  
+  // <button style="position:absolute;right:10px;width:42px;border:none;background-color:transparent;">
+  //    <img style="width:100%;" src="/assets/ws.png" alt="ws"/>
+  // </button>
   card.innerHTML = `
     <div style="width:300px; height:320px; position:absolute; left: 10px; top:calc(50vh - 200px); z-index: 20; ">
       <div class="card" style="width: 18rem; background-color:rgba(0,0,0,0.75);">
@@ -103,6 +106,7 @@ const mostrarFicha = (item) => {
           <p class="text-white">Superficie: ${superficie} M2</p>
           <p class="text-white">Valor Cuota ${cuotas_cnt} Meses: ${importecuotaPY}</p>
           <p class="text-white">Precio Contado a 12 Cuotas: ${preciovtacontadoPY}</p>
+          <p class="text-white">Codigo: ${id}<p/>
           <div class="btn-group d-flex justify-content-evenly" role="group">
             
           </div>
@@ -120,6 +124,7 @@ const mostrarFicha = (item) => {
   buttonContinuar.textContent = 'Continuar'
 
   buttonContinuar.addEventListener('click', () => card.remove())
+  buttonPlano.addEventListener('click', () => window.open('/assets/plano.pdf','_blank'))
   
   pano.appendChild(card)
   const buttonGroup = document.querySelector('.btn-group')

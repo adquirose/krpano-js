@@ -2,7 +2,7 @@
 
 
 
-<layer name="btn_vistageneral" keep="true" visible="false" enabled="false" url="spots/btn-vistageneral.png" scale="0.6" align="top" x="0" y="10" handcursor="true" />	
+<layer name="btn_vistageneral" keep="true" visible="false" enabled="false" url="png/btn-vistageneral.png" scale="0.6" align="top" x="0" y="10" handcursor="true" />	
 
 <action name="mostrar_btn_vistageneral">
 	set(layer[btn_vistageneral].visible,%1);

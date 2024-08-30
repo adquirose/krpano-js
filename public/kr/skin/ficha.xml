@@ -1,5 +1,5 @@
 <krpano>
-	<include url="data.xml" />
+	
 	<!--Estilos del btn en la ficha-->
 	<style name="btn" type="text" vcenter="true" bg="false" bgcolor="0x000000" bgborder="2 0xFC0E0E 0" bgalpha="0.25" handcursor="true" keep="true" zorder="51" width="95" height="40" css="data:css_btn" onhover="borderActive(true);" onout="borderActive(false);"/>
 	<style name="texto_ficha" type="text" height="40" align="lefttop" edge="lefttop" background="false" backgroundcolor="0x123123" backgroundalpha="1" handcursor="false" keep="true" width="90%" zorder="51"/>

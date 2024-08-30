@@ -3,9 +3,8 @@
 	<include url="skin/vtourskin.xml" />
 	<include url="plugins/showtext.xml" />
  	<include url="skin/vistageneral.xml" />
-   	<include url="skin/hotspots-actions.xml" />
+   	<include url="styles.xml" />
     <include url="skin/spots.xml" />
-    <include url="skin/ficha.xml" />
     <include url="skin/mapa.xml" />
 	<include url="skin/vtourskin_design_117.xml" />
    <!-- <include url="../krpano/plugins/googleanalytics.xml"/> -->
@@ -55,23 +54,13 @@
         txtshadow=""
         width="46" height="46"
     />
-	<style name="spot-andrea" scale="0.4" zorder="50" edge="bottom" align="bottom" alpha="1"
-        capture="false" handcursor="false"
-	    fillcolor="0xffff00" fillalpha="0.30"
-	    bordercolor="0xffff00" borderalpha="0.80"
-	    onover="tween(alpha, 0.1, 0.25);"
-	    onout="tween(alpha, 1.0, 0.25);"
-	    ondown.touch="asyncloop(pressed, onhover(); );"
-	    onup.touch="onout();"
-    />
-     
+
     <style name="skin_hotspotstyle4" scale="0.5" handcursor="false" edge="bottomleft" align="bottom" alpha="1"/>
-  	<style name="hs" scale="0.4" zorder="50" edge="bottom" align="bottom" alpha="1"/>
-	<style name="lupa" scale="0.6" distorted="false" oy="0" handcursor="true" zorder="50" />
+
 	<textstyle name="default"
 		font="Helvetica" fontsize.no-mobile="14" fontsize.mobile="14" bold="false"
 		background="true" backgroundcolor="0x211915" backgroundalpha="0.667"
-		border="true" borderwidth="2" bordercolor="0xFFFFFF" roundedge="1"
+		bgborder="true" bgborderwidth="2" bgbordercolor="0xFFFFFF" roundedge="1"
 		textcolor="0xFFFFFF"
 		padding="6 10"
 		textalign="center"
@@ -97,18 +86,18 @@
 
 		<!-- place your scene hotspots here -->
 	
-		<hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/spots/acceso.png" onhover="showtext(Acceso);" ath="-39.972" atv="36.156"/>
-		<hotspot name="vista2" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/spots/spot0.png" onclick="looktohotspot(vista2, 70, tween(easeOutQuad,3));loadscene(scene_master1, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 2);" ath="130.856" atv="21.737"/>
+		<hotspot name="spot1" handcursor="false" scale="0.5" url="skin/png/acceso.png" onhover="showtext(Acceso);" ath="-39.972" atv="36.156"/>
+		<hotspot name="vista2" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/png/spot0.png" onclick="looktohotspot(vista2, 70, tween(easeOutQuad,3));loadscene(scene_master1, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 2);" ath="130.856" atv="21.737"/>
 		
-		<hotspot name="hito1" style="skin_hotspotstyle4" url="skin/spots/1.png" ath="160.004" atv="-0.563"/>
-		<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/spots/3.png" ath="88.723" atv="0.081"/>
-		<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/spots/2.png" ath="42.241" atv="5.602"/>
-		<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/spots/4.png" ath="125.052" atv="1.365"/>
-		<hotspot name="hito5" style="skin_hotspotstyle4" url="skin/spots/5.png" ath="145.756" atv="-0.531"/>
-		<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/spots/6.png" ath="162.610" atv="-0.778"/>
-		<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/spots/7.png" ath="-133.595" atv="1.944"/>
-		<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/spots/8.png" ath="169.883" atv="-0.177"/>
-		<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/spots/9.png" ath="-87.433" atv="2.223"/>
+		<hotspot name="hito1" style="skin_hotspotstyle4" url="skin/png/1.png" ath="160.004" atv="-0.563"/>
+		<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/png/3.png" ath="88.723" atv="0.081"/>
+		<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/png/2.png" ath="42.241" atv="5.602"/>
+		<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/png/4.png" ath="125.052" atv="1.365"/>
+		<hotspot name="hito5" style="skin_hotspotstyle4" url="skin/png/5.png" ath="145.756" atv="-0.531"/>
+		<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/png/6.png" ath="162.610" atv="-0.778"/>
+		<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/png/7.png" ath="-133.595" atv="1.944"/>
+		<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/png/8.png" ath="169.883" atv="-0.177"/>
+		<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/png/9.png" ath="-87.433" atv="2.223"/>
 
 	</scene>
 
@@ -124,18 +113,18 @@
 
 		<!-- place your scene hotspots here -->
 	
-		<hotspot name="hito1" style="skin_hotspotstyle4" url="skin/spots/1.png" ath="-147.258" atv="0.441"/>
-		<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/spots/3.png" ath="130.637" atv="1.692"/>
-		<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/spots/2.png" ath="70.101" atv="4.724"/>
-		<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/spots/4.png" ath="177.232" atv="2.954"/>
-		<hotspot name="hito5" style="skin_hotspotstyle4" url="skin/spots/5.png" ath="-161.043" atv="0.780"/>
-		<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/spots/6.png" ath="-142.016" atv="0.749"/>
-		<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/spots/7.png" ath="-79.182" atv="1.072"/>
-		<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/spots/8.png" ath="-133.253" atv="0.921"/>
-		<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/spots/9.png" ath="-15.403" atv="0.303"/>s
-		<hotspot name="vista1" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/spots/spot0.png" onclick="looktohotspot(vista1, 70, tween(easeOutQuad,3));loadscene(scene_master, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 1);" ath="3.555" atv="17.364"/>
-		<hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/spots/parque.png" onhover="showtext(Plaza);" ath="-12.482" atv="43.012"/>
-     	<hotspot name="spot2" handcursor="false" style="spot-andrea" url="skin/spots/equipamiento.png" onhover="showtext(Edificio Público);" ath="27.759" atv="51.039"/>
+		<hotspot name="hito1" style="skin_hotspotstyle4" url="skin/png/1.png" ath="-147.258" atv="0.441"/>
+		<hotspot name="hito3" style="skin_hotspotstyle4" url="skin/png/3.png" ath="130.637" atv="1.692"/>
+		<hotspot name="hito2" style="skin_hotspotstyle4" url="skin/png/2.png" ath="70.101" atv="4.724"/>
+		<hotspot name="hito4" style="skin_hotspotstyle4" url="skin/png/4.png" ath="177.232" atv="2.954"/>
+		<hotspot name="hito5" style="skin_hotspotstyle4" url="skin/png/5.png" ath="-161.043" atv="0.780"/>
+		<hotspot name="hito6" style="skin_hotspotstyle4" url="skin/png/6.png" ath="-142.016" atv="0.749"/>
+		<hotspot name="hito7" style="skin_hotspotstyle4" url="skin/png/7.png" ath="-79.182" atv="1.072"/>
+		<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/png/8.png" ath="-133.253" atv="0.921"/>
+		<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/png/9.png" ath="-15.403" atv="0.303"/>s
+		<hotspot name="vista1" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/png/spot0.png" onclick="looktohotspot(vista1, 70, tween(easeOutQuad,3));loadscene(scene_master, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 1);" ath="3.555" atv="17.364"/>
+		<hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/png/parque.png" onhover="showtext(Plaza);" ath="-12.482" atv="43.012"/>
+     	<hotspot name="spot2" handcursor="false" style="spot-andrea" url="skin/png/equipamiento.png" onhover="showtext(Edificio Público);" ath="27.759" atv="51.039"/>
 	</scene>
 
 
