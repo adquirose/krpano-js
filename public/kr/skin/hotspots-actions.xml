@@ -97,13 +97,12 @@
         set(hotspot[%1].ath,%2);
         set(hotspot[%1].atv,%3);
         if(
-            %4 == disponible, hotspot[%1].loadstyle(hs_pro_disponible),
-            %4 == vendido, hotspot[%1].loadstyle(hs_pro_vendido),
-            %4 == reservado, hotspot[%1].loadstyle(hs_pro_reservado),
-            %4 == nodisponible, hotspot[%1].loadstyle(hs_pro_nodisponible),
+            %4 == '1' || %4 == '2', 
+            hotspot[%1].loadstyle(hs_pro_disponible),
+            hotspot[%1].loadstyle(hs_pro_nodisponible),
         );
         
         set(hotspot[%1].html,%5);
-        set(hotspot[%1].onclick,mostrar_ficha(%1,%6,%4,%5));
+        set(hotspot[%1].onclick,js('mostrarFicha()'););
     </action>
 </krpano>

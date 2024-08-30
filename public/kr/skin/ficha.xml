@@ -56,8 +56,6 @@
 				
 		set(layer[btn-continuar].onclick,continuar()); 
 		
-		<!-- def(ruta,string,'https://wa.me/59599999999/?text=San Marcos: Hola, estoy interesado en el sitio ');
-		txtadd(link_ws,get(ruta),get(lote)); -->
         set(layer[btn-extra].onclick,openurl('./skin/plano.pdf', _blank));
 
 	</action>

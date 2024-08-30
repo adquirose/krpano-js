@@ -63,13 +63,68 @@ function loadScene(nameScene){
 }
 
 const loadSpots = (scene) => {
+  // console.log(arrFinal)
   arrFinal.forEach( item => {
     if(scene === item.escena){
-      const nameFicha = `spot${item.idgi_lote}`
-      krpano.call(`crear_hs(${nameFicha},${item.ath},${item.atv},'disponible',${item.html},${item.preciovtacontado})`)
+      const nameFicha = `spot_${item.html}`
+      // krpano.call(`crear_hs(${nameFicha},${item.ath},${item.atv},${item.idgi_loteestado}, ${item.html})`)
+      krpano.call(`addhotspot(${nameFicha})`)
+      krpano.set(`hotspot[${nameFicha}].ath`,item.ath)
+      krpano.set(`hotspot[${nameFicha}].atv`,item.atv)
+      krpano.set(`hotspot[${nameFicha}].html`,item.html)
+      if(item.idgi_loteestado === '1' || item.idgi_loteestado === '2'){
+        krpano.call(`hotspot[${nameFicha}].loadstyle(hs_pro_disponible)`)
+        krpano.set(`hotspot[${nameFicha}].onclick`, () => mostrarFicha(item))
+      }else{
+        krpano.call(`hotspot[${nameFicha}].loadstyle(hs_pro_nodisponible)`)
+      }   
     }
     
   }) 
+}
+
+const mostrarFicha = (item) => {
+
+  const { html, cuotas_cnt, importecuota, superficie_m2, preciovtacontado } = item
+
+  const importecuotaPY = new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG' }).format(importecuota)
+  const preciovtacontadoPY = new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG' }).format(preciovtacontado)
+  const superficie = new Intl.NumberFormat("de-DE").format(superficie_m2)
+  const card = document.createElement('div')
+  const pano = document.getElementById('pano')
+
+  
+  card.innerHTML = `
+    <div style="width:300px; height:320px; position:absolute; left: 10px; top:calc(50vh - 200px); z-index: 20; ">
+      <div class="card" style="width: 18rem; background-color:rgba(0,0,0,0.75);">
+        <div class="card-body">
+          <h5 class="card-title text-white">${html}</h5>
+          <p class="text-white">Estado: Disponible</p>
+          <p class="text-white">Superficie: ${superficie} M2</p>
+          <p class="text-white">Valor Cuota ${cuotas_cnt} Meses: ${importecuotaPY}</p>
+          <p class="text-white">Precio Contado a 12 Cuotas: ${preciovtacontadoPY}</p>
+          <div class="btn-group d-flex justify-content-evenly" role="group">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+  const buttonContinuar = document.createElement('button')
+  const buttonPlano = document.createElement('button')
+
+  buttonPlano.classList.add('btn', 'btn-outline-success')
+  buttonPlano.textContent = 'Plano'
+
+  buttonContinuar.classList.add('btn', 'btn-success')
+  buttonContinuar.textContent = 'Continuar'
+
+  buttonContinuar.addEventListener('click', () => card.remove())
+  
+  pano.appendChild(card)
+  const buttonGroup = document.querySelector('.btn-group')
+  buttonGroup.appendChild(buttonPlano)
+  buttonGroup.appendChild(buttonContinuar)
 }
 
 embedpano({ 
