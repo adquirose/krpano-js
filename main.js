@@ -135,6 +135,7 @@ embedpano({
   xml:'./kr/tour.xml', 
   target:'pano', 
   html5:"only",
+  basePath:"%VIEWER%",
   onready: krpano_onready_interface
 })
 
