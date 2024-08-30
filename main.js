@@ -75,7 +75,7 @@ const loadSpots = (scene) => {
       if(item.idgi_loteestado === '1' || item.idgi_loteestado === '2'){
         krpano.call(`hotspot[${nameFicha}].loadstyle(hs_pro_disponible)`)
         krpano.set(`hotspot[${nameFicha}].onclick`, () => mostrarFicha(item))
-      }else{
+      }else if(item.idgi_loteestado !== null){
         krpano.call(`hotspot[${nameFicha}].loadstyle(hs_pro_nodisponible)`)
       }   
     }
