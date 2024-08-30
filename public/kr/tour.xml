@@ -123,8 +123,8 @@
 		<hotspot name="hito8" style="skin_hotspotstyle4" url="skin/png/8.png" ath="-133.253" atv="0.921"/>
 		<hotspot name="hito9" style="skin_hotspotstyle4" url="skin/png/9.png" ath="-15.403" atv="0.303"/>s
 		<hotspot name="vista1" handcursor="true" zorder="50" style="skin_hotspotstyle2" url="skin/png/spot0.png" onclick="looktohotspot(vista1, 70, tween(easeOutQuad,3));loadscene(scene_master, null, MERGE, BLEND(1));" onhover="showtext(Ver Masterplan 360º Vista 1);" ath="3.555" atv="17.364"/>
-		<hotspot name="spot1" handcursor="false" style="spot-andrea" url="skin/png/parque.png" onhover="showtext(Plaza);" ath="-12.482" atv="43.012"/>
-     	<hotspot name="spot2" handcursor="false" style="spot-andrea" url="skin/png/equipamiento.png" onhover="showtext(Edificio Público);" ath="27.759" atv="51.039"/>
+		<hotspot name="spot1" handcursor="false" scale="0.5" url="skin/png/parque.png" onhover="showtext(Plaza);" ath="-12.482" atv="43.012"/>
+     	<hotspot name="spot2" handcursor="false" scale="0.5" url="skin/png/equipamiento.png" onhover="showtext(Edificio Público);" ath="27.759" atv="51.039"/>
 	</scene>
 
 

@@ -44,7 +44,6 @@ const arrFinal = arr.map(item => {
   const newObj = { ...obj, ...item }
   return newObj
 })
-console.log(arrFinal)
 
 function krpano_onready_interface(krpano_interface){
   krpano = krpano_interface 
